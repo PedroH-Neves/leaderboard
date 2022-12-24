@@ -1,3 +1,25 @@
-body {
-  background-color: red;
+.scores-div {
+  display: flex;
+  gap: 10px;
+}
+
+.table-input-div {
+  display: flex;
+}
+
+.one-half {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+}
+
+.two-half {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

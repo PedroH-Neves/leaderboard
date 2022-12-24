@@ -1,14 +1,12 @@
-import _ from 'lodash';
+import { scoreInput } from './modules/action';
+import { refreshBtn, ScoreAdd, scoreTable } from './modules/variables';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+ScoreAdd.addEventListener('click', (e) => {
+  e.preventDefault();
+  scoreInput.addScores();
+})
 
- // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
+refreshBtn.addEventListener('click',(e) => {
+  scoreInput.refreshScores(e);
+})
