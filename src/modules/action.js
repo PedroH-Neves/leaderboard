@@ -1,20 +1,20 @@
-import { errorMessage, inputName, inputScore, scoreTable } from "./variables";
-
+import {
+  errorMessage, inputName, inputScore, scoreTable,
+} from './variables';
 
 export default class NewScores {
+  constructor(person, score) {
+    this.person = person;
+    this.score = score;
+    this.scoreArray = JSON.parse(localStorage.getItem('scores')) || [];
+    this.displayScores();
+  }
 
-    constructor(person, score) {
-      this.person = person;
-      this.score = score;
-      this.scoreArray = JSON.parse(localStorage.getItem('scores')) || [];
-      this.displayScores();
-    }
-  
     displayScores = () => {
       scoreTable.innerHTML = `
       ${this.scoreArray
-          .map(
-            (points, index) => `
+        .map(
+          (points) => `
           <div class="show-added-scores">
           <div class="user-input">
           <div class="input-div">
@@ -24,11 +24,11 @@ export default class NewScores {
           </div>
           </div>
         `,
-          )
-          .join('')}
+        )
+        .join('')}
         `;
     }
-  
+
     addScores = () => {
       if ((inputName.value === '') || (inputScore.value === '')) {
         errorMessage.style.display = 'block';
@@ -40,13 +40,13 @@ export default class NewScores {
         this.displayScores();
       }
     }
-  
+
     refreshScores = (e) => {
-        e.preventDefault();
-        this.scoreArray = [];
-        localStorage.setItem('scores', JSON.stringify(this.scoreArray));
-        this.displayScores();
+      e.preventDefault();
+      this.scoreArray = [];
+      localStorage.setItem('scores', JSON.stringify(this.scoreArray));
+      this.displayScores();
     }
-  }
-  
-  export const scoreInput = new NewScores();
+}
+
+export const scoreInput = new NewScores();
