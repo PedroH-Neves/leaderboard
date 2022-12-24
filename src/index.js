@@ -1,12 +1,8 @@
-import { scoreInput } from './modules/action';
-import { refreshBtn, ScoreAdd } from './modules/variables';
 import './style.css';
+import { refreshBtn, submitForm } from './modules/variables';
+import addNewScore from './modules/postScore';
+import getScore from './modules/getScore';
 
-ScoreAdd.addEventListener('click', (e) => {
-  e.preventDefault();
-  scoreInput.addScores();
-});
+submitForm.addEventListener('submit', addNewScore);
 
-refreshBtn.addEventListener('click', (e) => {
-  scoreInput.refreshScores(e);
-});
+refreshBtn.addEventListener('click', getScore);
