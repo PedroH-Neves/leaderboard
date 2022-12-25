@@ -2,6 +2,10 @@
   font-family: 'Patrick Hand', cursive;
 }
 
+body {
+  text-align: center;
+}
+
 .scores-div {
   display: flex;
   gap: 10px;
@@ -9,6 +13,7 @@
 
 .table-input-div {
   display: flex;
+  justify-content: center;
 }
 
 .one-half {
